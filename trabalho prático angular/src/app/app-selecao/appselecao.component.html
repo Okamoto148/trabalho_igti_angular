@@ -1,0 +1,19 @@
+
+ <p class='table' *ngIf="opcoes.length == 2 ">
+  {{titulo}}
+</p>
+<div class='table2' *ngIf="opcoes.length > 3 " >
+<p>
+  <b>{{titulo}}</b> <br> Escolha até 3 <span [ngSwitch]="valor"><span *ngSwitchCase=1>{{selecionado}}</span><span *ngSwitchCase=2>{{selecionado2}}</span><span *ngSwitchCase=3>{{selecionado3}}</span></span>
+</p>
+
+</div>
+<table>
+   <tr *ngFor="let opcao of opcoes">
+    <td *ngIf="opcoes.length == 2"><input type="radio" (click)="increment()" [disabled]="valor>=1" ></td>
+    <td *ngIf="opcoes.length > 3 "><input type="checkbox" (click)="increment()" [(ngModel)]="opcao.done" [disabled]="valor>=3"></td>
+    <td>{{opcao.description}}</td>
+  </tr>
+</table>
+
+
